@@ -1,0 +1,258 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "LOL Hub by Biel " .. Fluent.Version,
+    TabWidth = 160, 
+    Size = UDim2.fromOffset(580, 460),
+    Theme = "Dark"
+})
+
+local Tabs = {
+    AAMenu = Window:AddTab({ Title = "Main", Icon = "cherry" }),
+	AATP = Window:AddTab({ Title = "Teleports", Icon = "navigation" }),
+    AutoEnter = Window:AddTab({ Title = "Auto Enter (NOT WORKING)", Icon = "monitor" }),
+    UI = Window:AddTab({ Title = "Open UI", Icon = "grab" }),
+    Misc = Window:AddTab({ Title = "Misc", Icon = "dollar-sign" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+Tabs.Settings:AddParagraph({ Title = "Anime Adventures", Content = "Scripts made by biel" })
+Tabs.UI:AddParagraph({ Title = "Anime Adventures", Content = "Scripts made by biel" })
+Tabs.Misc:AddParagraph({ Title = "Anime Adventures", Content = "Scripts made by biel" })
+Tabs.AAMenu:AddParagraph({ Title = "Anime Adventures", Content = "Scripts made by biel" })
+Tabs.AAMenu:AddParagraph({ Title = "More Options Coming Soon", Content = "Subscribe!!!" })
+Tabs.AATP:AddParagraph({ Title = "Anime Adventures", Content = "Scripts made by biel" })
+Tabs.AutoEnter:AddParagraph({ Title = "Anime Adventures", Content = "Scripts made by biel" })
+-- TELEPORT AIZEN ARENA
+function teleporteParaCaminho(jogador, caminho)
+    if jogador and jogador.Character and jogador.Character:FindFirstChild("HumanoidRootPart") then
+
+        jogador.Character.HumanoidRootPart.CFrame = caminho.CFrame
+    end
+end
+
+
+local caminho = workspace:FindFirstChild("_aizenarea"):FindFirstChild("entrance")
+local jogador = game.Players.LocalPlayer
+
+Tabs.AATP:AddButton({ Title = "Teleport Aizen Arena", Callback = function()
+teleporteParaCaminho(jogador, caminho)
+end })
+-- TELEPORT GOJO DOMAIN
+function teleporteParaCaminho(jogador, caminho)
+    if jogador and jogador.Character and jogador.Character:FindFirstChild("HumanoidRootPart") then
+
+        jogador.Character.HumanoidRootPart.CFrame = caminho.CFrame
+    end
+end
+
+
+local caminho = workspace._gojodomain.entrance
+local jogador = game.Players.LocalPlayer
+
+Tabs.AATP:AddButton({ Title = "Teleport Gogo Domain", Callback = function()
+teleporteParaCaminho(jogador, caminho)
+end })
+-- TELEPORT SUKUNA DOMAIN
+function teleporteParaCaminho(jogador, caminho)
+    if jogador and jogador.Character and jogador.Character:FindFirstChild("HumanoidRootPart") then
+
+        jogador.Character.HumanoidRootPart.CFrame = caminho.CFrame
+    end
+end
+
+
+local caminho = workspace._sukunadomain.entrance
+local jogador = game.Players.LocalPlayer
+
+Tabs.AATP:AddButton({ Title = "Teleport Sukuna Domain", Callback = function()
+teleporteParaCaminho(jogador, caminho)
+end })
+-- TELEPORT ECLIPSE
+function teleporteParaCaminho(jogador, caminho)
+    if jogador and jogador.Character and jogador.Character:FindFirstChild("HumanoidRootPart") then
+
+        jogador.Character.HumanoidRootPart.CFrame = caminho.CFrame
+    end
+end
+
+local caminho = workspace.eclipse.entrance
+local jogador = game.Players.LocalPlayer
+
+Tabs.AATP:AddButton({ Title = "Teleport Eclipse", Callback = function()
+teleporteParaCaminho(jogador, caminho)
+end })
+-- TELEPORT DOOR
+function teleporteParaCaminho(jogador, caminho)
+    if jogador and jogador.Character and jogador.Character:FindFirstChild("HumanoidRootPart") then
+
+        jogador.Character.HumanoidRootPart.CFrame = caminho.CFrame
+    end
+end
+
+local caminho = workspace._LOBBIES.Story._lobbytemplategreen1.Barrier
+local jogador = game.Players.LocalPlayer
+
+Tabs.AATP:AddButton({ Title = "Teleport Play", Callback = function()
+teleporteParaCaminho(jogador, caminho)
+end })
+
+
+
+-- TELEPORT INFINITE/STORY
+local Dropdown1 = Tabs.AutoEnter:AddDropdown("Dropdown", {
+    Title = "World",
+    Values = {"Namek", "Opção 2", "Opção 3"},
+    Multi = false, -- Define se o usuário pode selecionar várias opções (true) ou apenas uma (false).
+    Default = 1, -- Opção padrão quando a interface carrega.
+})
+Dropdown1:OnChanged(function(Value)
+        if Value=="Namek" then
+            print("Namek Selecionado")
+        end
+    end)
+local Dropdown2 = Tabs.AutoEnter:AddDropdown("Dropdown", {
+    Title = "Act",
+    Values = {"Infinite","Teste"},
+    Multi = false, -- Define se o usuário pode selecionar várias opções (true) ou apenas uma (false).
+    Default = 1, -- Opção padrão quando a interface carrega.
+})
+Dropdown2:OnChanged(function(Value)
+        if Value=="Infinite" then
+            print("Infinite Selecionado")
+        end
+    end)
+
+function teleporteParaCaminho(jogador, caminho)
+    if jogador and jogador.Character and jogador.Character:FindFirstChild("HumanoidRootPart") then
+
+        jogador.Character.HumanoidRootPart.CFrame = caminho.CFrame
+    end
+end
+
+
+local caminho = workspace._LOBBIES.Story._lobbytemplategreen1.Barrier_collision
+local jogador = game.Players.LocalPlayer
+local level = workspace._LOBBIES.Story._lobbytemplategreen1.Level
+local Active = workspace._LOBBIES.Story._lobbytemplategreen1.Active
+local Difficulty = workspace._LOBBIES.Story._lobbytemplategreen1.Difficulty
+local timer = workspace._LOBBIES.Story._lobbytemplategreen1.Timer
+local world = workspace._LOBBIES.Story._lobbytemplategreen1.World
+local teleport = workspace._LOBBIES.Story._lobbytemplategreen1.Teleporting
+local select = game:GetService("Players").LocalPlayer.PlayerGui.InfiniteTowerUI.LevelSelect.Buttons.Start
+local start = game:GetService("Players").LocalPlayer.PlayerGui.LevelSelectGui.Buttons.Start
+
+
+
+local Toggle = Tabs.AutoEnter:AddToggle("MyToggle", 
+{
+    Title = "Auto Start", 
+    Description = "Automate start for you",
+    Default = false, -- esse "," e preciso coloque em qualquer situação 
+    Callback = function(state)
+	if state and Dropdown1.Value=="Namek" and Dropdown2.Value=="Infinite" then
+        teleporteParaCaminho(jogador, caminho)
+        world.Value="namek"
+	    level.Value="namek_infinite"
+        Difficulty.Value="Hard"
+        wait(1)
+        select.Active=true
+        select.MouseButton1Click()
+        start.Active=true
+        start.MouseButton1Click()
+	else
+	    level.Value=""
+        Active.Value=0
+        Difficulty.Value="Normal"
+        timer.Value=70
+        end
+    end 
+})
+
+
+-- MISC
+    local Input = Tabs.Misc:AddInput("Input", {
+        Title = "Gems",
+        Default = "",
+        Placeholder = "Insert Gems Amount",
+        Numeric = true, -- Only allows numbers
+        Finished = true, -- Only calls callback when you press enter
+        Callback = function(Value)
+            local gems = game:GetService("Players").LocalPlayer._stats.gem_amount
+			gems.Value=Value
+        end
+    })
+   local Input = Tabs.Misc:AddInput("Input", {
+        Title = "Gold",
+        Default = "",
+        Placeholder = "Insert Gold Amount",
+        Numeric = true, -- Only allows numbers
+        Finished = true, -- Only calls callback when you press enter
+        Callback = function(Value)
+            local gold = game:GetService("Players").LocalPlayer._stats.gold_amount
+			gold.Value=Value
+        end
+    })
+       local Input = Tabs.Misc:AddInput("Input", {
+        Title = "Gems Legacy",
+        Default = "",
+        Placeholder = "Insert Gems Legacy Amount",
+        Numeric = true, -- Only allows numbers
+        Finished = true, -- Only calls callback when you press enter
+        Callback = function(Value)
+            local gemsLegacy = game:GetService("Players").LocalPlayer._stats._resourceGemsLegacy
+			gemsLegacy.Value=Value
+        end
+    })
+       local Input = Tabs.Misc:AddInput("Input", {
+        Title = "Candy (Halloween Event)",
+        Default = "",
+        Placeholder = "Insert Candy Amount",
+        Numeric = true, -- Only allows numbers
+        Finished = true, -- Only calls callback when you press enter
+        Callback = function(Value)
+            local candy = game:GetService("Players").LocalPlayer._stats._resourceCandies
+			candy.Value=Value
+        end
+    })
+       local Input = Tabs.Misc:AddInput("Input", {
+        Title = "Holiday Stars (Holiday Event)",
+        Default = "",
+        Placeholder = "Insert Holiday Stars Amount",
+        Numeric = true, -- Only allows numbers
+        Finished = true, -- Only calls callback when you press enter
+        Callback = function(Value)
+            local holidaystar = game:GetService("Players").LocalPlayer._stats._resourceHolidayStars
+			holidaystar.Value=Value
+        end
+    })
+       local Input = Tabs.Misc:AddInput("Input", {
+        Title = "Player XP",
+        Default = "",
+        Placeholder = "Insert Player XP Amount",
+        Numeric = true, -- Only allows numbers
+        Finished = true, -- Only calls callback when you press enter
+        Callback = function(Value)
+            local playerxp = game:GetService("Players").LocalPlayer._stats.player_xp
+			playerxp.Value=Value
+        end
+    })
+-- UI
+local Merchant = game:GetService("Players").LocalPlayer.PlayerGui.ItemShop
+Tabs.UI:AddButton({ Title = "Merchant Shop", Callback = function()
+Merchant.Enabled=1
+end })
+-- Settings
+local winot = game:GetService("Players").LocalPlayer.PlayerGui.NotificationWindows
+local Toggle = Tabs.Settings:AddToggle("MyToggle", 
+{
+    Title = "Disable Daily Challenges Notifications", 
+    Description = "disable annoying on screen notifications",
+    Default = true, -- esse "," e preciso coloque em qualquer situação 
+    Callback = function(state)
+	if state then
+	    winot.Enabled=false
+	else
+	    winot.Enabled=true
+        end
+    end
+})
